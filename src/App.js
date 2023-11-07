@@ -1,9 +1,31 @@
-import  Todo  from "./components/Todo.js";
-import Calender from "./components/Calender.js";
-import TaskInput from "./components/TaskInput.js";
-import Search from "./components/SearchInput.js";
-import  Status from "./components/Status.js";
+import  Todo  from "./components/Todo.jsx";
+import Calender from "./components/Calender.jsx";
+import TaskInput from "./components/TaskInput.jsx";
+import Search from "./components/SearchInput.jsx";
+import  Status from "./components/Status.jsx";
 
+const todos = [
+    {
+        title: "item 1",
+        status: true,
+    },
+    {
+        title: "item 2",
+        status: false,
+    },
+    {
+        title: "item 3",
+        status: false,
+    },
+    {
+        title: "item 4",
+        status: true,
+    },
+    {
+        title: "item 5",
+        status: false,
+    },
+]
 
 export function App() {
     return (
@@ -23,7 +45,14 @@ export function App() {
                     </div>
                     <Search/>
                     <Status/>
-                    <Todo/>
+                    <div className="tasks">
+                        <ul id="list-element">
+                            {todos.map((todo) => {
+                                return <Todo title={todo.title} status={todos.status} /> ;
+                            })}
+                        </ul>
+                    </div>
+                    {/* <Todo/> */}
                 </div>
             </main>
         </div>
