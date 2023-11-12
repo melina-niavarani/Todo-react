@@ -148,7 +148,7 @@ input[type="radio"] {
       margin-right: 10px;
       background-color: var(--primary-bg-color);
       outline-color: var(--accent-color);
-      /* margin-bottom: 50px; */
+      margin-bottom: 50px;
   }
   .writing-tasks,
   .search {

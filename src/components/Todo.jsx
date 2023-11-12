@@ -3,7 +3,7 @@ function Todo(props) {
         <li className="tasks-list">
             <div className="d-flex">
                 <input type="checkbox" checked={props.status}></input>
-                <p>{props.title}</p>
+                <p> {props.title} </p>
             </div>
             <span className="remove-icon"></span>
         </li>

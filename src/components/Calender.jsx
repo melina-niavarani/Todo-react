@@ -1,8 +1,8 @@
 function Calender() {
     return (
-        <div class="info">
-            <div class="date-holder">
-                <div class="date"></div>
+        <div className="info">
+            <div className="date-holder">
+                <div className="date"></div>
             </div>
         </div>
     )

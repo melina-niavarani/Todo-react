@@ -1,7 +1,7 @@
 function Search() {
     return (
-        <div class="search-container">
-            <input class="search"  placeholder="Search ..."/>
+        <div className="search-container">
+            <input className="search"  placeholder="Search ..."/>
         </div>
     )
 }

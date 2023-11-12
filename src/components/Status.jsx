@@ -1,7 +1,7 @@
 function Status() {
     return (
         <div className="status">
-            <span>Status:</span>
+            <span>Status:  </span>
             <select className="select">
                 <option value="Done">Done</option>
                 <option value="Todo">Todo</option>
