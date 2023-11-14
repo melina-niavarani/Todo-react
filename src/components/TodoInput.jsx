@@ -2,6 +2,8 @@ import { useState } from "react";
 
 function TodoInput(props) {
     const [inputValue, setInputValue] = useState("") ;
+    const isDisabled = inputValue === '';
+    // console.log(isDisabled)
 
     return (
         <div className="add-container">
@@ -34,6 +36,7 @@ function TodoInput(props) {
 
             />
             <button 
+                disabled = {isDisabled}
                 onClick={()=>{
                     props.handleSubmit(inputValue);
                     // props.handleSubmit("hi")

@@ -139,6 +139,11 @@ input[type="radio"] {
       background-color: var(--primary-bg-color);
       color: var(--primary-font-color);
   }
+  .add-new:disabled {
+     background-color: #ccc;
+     color: var(--danger-color);
+  }
+
   .add-new:hover {
       cursor: pointer;
       color: var(--accent-color);

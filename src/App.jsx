@@ -33,6 +33,7 @@ import Buttons from "./components/Buttons.jsx";
 export function App() {
 
     const [list, setList] = useState([])
+    const [status, setStatus] = useState("all");
 
     const handle = (text) => {
         const todo = {
@@ -41,13 +42,38 @@ export function App() {
         }
         setList([...list, todo])
     }
+    
+    const toggleStatus = (title) => {
+        const nextList = list.map((todo) => {
+            if (todo.title === title) {
+                return {
+                    title: todo.title,
+                    status: !todo.status,
+                };
+            }
+
+            return todo
+        });
+        setList(nextList)
+    }
+
+    const filteredList = list.filter((todo) => {
+        if ( status === "Done"){
+            return todo.status === true;
+        } else if ( status === "Todo"){
+            return todo.status === false;
+        } else {
+            return true;
+        }
+    })
+    console.log(filteredList)
 
     return (
         <div >
             <header className="toper">
                 <Calender/>
                 <div className="container">
-                    <h2 className="today">Today </h2>
+                    <h2 className="today">Today</h2>
                     {/* <TodoInput handleSubmit={(value)=>{
                         const newItem = {
                             title: value,
@@ -60,13 +86,13 @@ export function App() {
             </header>
             <main className="tasks-holder">
                 <div className="container">
-                    <Buttons/>
+                    <Buttons listLenght={filteredList.length} listCount={list.length}/>
                     <Search/>
-                    <Status/>
+                    <Status setStatus= {setStatus} status = {status}/>
                     <div className="tasks">
                         <ul id="list-element">
-                            {list.map((todo) => {
-                                return <Todo title={todo.title} status={todo.status} /> ;
+                            {filteredList.map((todo) => {
+                                return <Todo title={todo.title} status={todo.status} handleCheck={toggleStatus} /> ;
                             })}
                         </ul>
                     </div>
