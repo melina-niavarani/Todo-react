@@ -1,9 +1,9 @@
-function buttons() {
+function buttons(props) {
     return(
         <div className="all-tasks">
-        <span id="tasks-number">Tasks</span>
-        <span id="delete-all">Delete All</span>
-    </div>
+            <span id="tasks-number">{props.listLenght} Tasks</span>
+            {props.listCount? <span id="delete-all">Delete All</span> : null }
+        </div>
     )   
 }
 
