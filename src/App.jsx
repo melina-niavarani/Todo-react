@@ -74,18 +74,13 @@ export function App() {
         }
     })
     // console.log(filteredList)
-
     const remove = (title) => {
-            list.forEach((item, i)=>{
-                if (item.title === title) {
-                    list.splice(i, 1);
-                }
-            })
-        // setList(newList)
+        const updatedList = list.filter((todo) => todo.title !== title);
+        setList(updatedList);
     }
 
     const deleteAll = () => {
-
+        setList([])
     }
 
     useEffect(() => {
@@ -143,7 +138,15 @@ export function App() {
                                             </button>
                                          </div> : null }
                             {filteredList.map((todo) => {
-                                return <Todo key={todo.id} title={todo.title} status={todo.status} handleCheck={toggleStatus} remove={remove} /> ;
+                                return (
+                                    <Todo 
+                                        key={todo.id} 
+                                        title={todo.title} 
+                                        status={todo.status} 
+                                        handleCheck={toggleStatus} 
+                                        remove={remove} 
+                                    />
+                                );
                             })}
                         </ul>
                     </div>

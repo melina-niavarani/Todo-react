@@ -12,7 +12,7 @@ function Todo(props) {
             </div>
             <span className="remove-icon"
                   onClick={() => {
-                    props.remove()
+                    props.remove(props.title)
                   }} >
             </span>
         </li>
