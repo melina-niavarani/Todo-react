@@ -35,6 +35,7 @@ export function App() {
 
     const [list, setList] = useState([])
     const [status, setStatus] = useState("all");
+    const [refreshCounter, setRefreshCounter] = useState(0)
     const [isLoading, setLoading] = useState(true);
     const [hasError, setError] = useState(false)
 
@@ -91,7 +92,7 @@ export function App() {
 
         setLoading(true);
         setError(false);
-        
+
         fetchToDoList()
             .then((data) => {
                 console.log(data)
@@ -107,7 +108,7 @@ export function App() {
 
             })
 
-    }, [])
+    }, [refreshCounter])
 
   
 
@@ -135,7 +136,12 @@ export function App() {
                     <div className="tasks">
                         <ul id="list-element">
                             {isLoading? <div>Loading...</div> : null }
-                            {hasError?  <div>Something went wrong...</div> : null }
+                            {hasError?  <div>Something went wrong...
+                                            <button onClick={() => {
+                                                    setRefreshCounter()     
+                                                }}> Retry
+                                            </button>
+                                         </div> : null }
                             {filteredList.map((todo) => {
                                 return <Todo key={todo.id} title={todo.title} status={todo.status} handleCheck={toggleStatus} remove={remove} /> ;
                             })}
