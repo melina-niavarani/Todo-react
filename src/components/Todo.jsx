@@ -10,7 +10,11 @@ function Todo(props) {
                 </input>
                 <p> {props.title} </p>
             </div>
-            <span className="remove-icon"></span>
+            <span className="remove-icon"
+                  onClick={() => {
+                    props.remove()
+                  }} >
+            </span>
         </li>
     )
 }
